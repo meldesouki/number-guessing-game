@@ -45,7 +45,6 @@ def main():
     number_guessed = False
 
     print('I have picked a number between 1 and 100. Try to guess what it is. You have 10 tries.')
-    print(f'The correct answer is {correct_num}')
 
     while (num_of_guesses <= 10  and number_guessed == False):
 
