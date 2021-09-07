@@ -77,6 +77,7 @@ def main():
     if (num_of_guesses > 10):
         print('Sorry you ran out of guesses')
         print(f'The correct answer is {correct_num}')
+        score = 0
         print(f'Score: {score}')
 
 
