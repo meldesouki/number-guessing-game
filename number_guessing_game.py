@@ -42,41 +42,39 @@ def main():
     curr_guess = 0
     num_of_guesses = 0
     score = 100
-    number_guessed = False
 
     print('I have picked a number between 1 and 100. Try to guess what it is. You have 10 tries.')
+    print(f'The correct answer is {correct_num}')
+    while (num_of_guesses <= 10):
 
-    while (num_of_guesses <= 10  and number_guessed == False):
+        if correct_num == curr_guess: 
 
-        if (correct_num != curr_guess):
+            print('Congratulations! You guessed the right number!')
+            score = score - (num_of_guesses * 10)
+            print(f'Score: {score}')
+            break
+
+        else:
             curr_guess = int(input('Your guess: '))
             num_of_guesses +=1
 
-            if num_of_guesses == 3:
+            if num_of_guesses == 3 and correct_num != curr_guess:
 
                 print('Here is a hint: ')
                 boundHint(correct_num)
 
-            elif num_of_guesses == 5:
+            elif num_of_guesses == 5 and correct_num != curr_guess:
                 print('Here is a hint: ')
                 evenOrOdd(correct_num)
 
-            elif num_of_guesses >= 7:
+            elif num_of_guesses >= 7 and correct_num != curr_guess:
                 guessIsTooBigOrSmall(curr_guess, correct_num)
 
-            if abs(curr_guess - correct_num) <= 10:
+            if abs(curr_guess - correct_num) <= 10 and correct_num != curr_guess:
                 print('Getting close! Your guess is within 10 numbers away.')
 
-        else:
-            number_guessed = True
 
-    if number_guessed == True:
-        print('Congratulations! You guessed the right number!')
-        score = score - (num_of_guesses * 10)
-        print(f'Score: {score}')
-
-    if (num_of_guesses > 10 and number_guessed == False):
-
+    if (num_of_guesses > 10):
         print('Sorry you ran out of guesses')
         print(f'The correct answer is {correct_num}')
         print(f'Score: {score}')
